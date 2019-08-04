@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Admin page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <h1 style="text-align:center;"> Welcome Admin</h1>
+    <br>
+    <form action="/logout" method="post">
+      <input type="submit" name="submit" value="Logout">
+    </form>
+    <button onclick="myFunction()">Show/Hide Messages</button>
+    <div id="myId">
+
+    <h1 style="text-align:center;"><%= title %></h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Drop us a line</th>
+          <th>Where did you find us</th>
+        </tr>
+      </thead>
+        <% records.forEach(function(row){ %>
+          <tr>
+            <td><%= row.name %></td>
+            <td><%= row.email %></td>
+            <td><%= row.feedback %></td>
+            <td><%= row.findUs %></td>
+          </tr>
+        <% })%>
+      </div>
+    </table>
+    <script type="text/javascript">
+    function myFunction() {
+      var x = document.getElementById("myId");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+    </script>
+  </body>
+</html>
